@@ -59,7 +59,7 @@ def RoundKeyU1(A, B, C, D, KC):
 
 def Seed128_RoundKey(UserKey):
 	if len(UserKey) != 16 :
-		print "Legnth must be 16"
+		print "Length must be 16"
 		return
 
 	A = unpack("<L",UserKey[0:4])[0]
@@ -73,7 +73,6 @@ def Seed128_RoundKey(UserKey):
 		temp = RoundKeyU0(A, B, C, D, KC[2*i])
 		K += pack("<L", temp[0])
 		K += pack("<L", temp[1])
-		print hex(temp[0]) + " && && " + hex(temp[1])
 		temp = A
 		A = check((A >> 8) ^ (B << 24))
 		B = check((B >> 8) ^ (temp << 24))
