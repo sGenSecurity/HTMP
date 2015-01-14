@@ -1,7 +1,7 @@
 #
 ##SEED####
 from struct import pack, unpack
-import Seed_tab
+import seed_tab
 
 check = lambda x: x & 0x00000000ffffffff
 
@@ -37,7 +37,7 @@ def byte_xor(data):
 	data_3 = (data & 0x00ff0000) >> 16
 	data_4 = (data & 0xff000000) >> 24
 
-	return Seed_tab.SS0[data_1] ^ Seed_tab.SS1[data_2] ^ Seed_tab.SS2[data_3] ^ Seed_tab.SS3[data_4]
+	return seed_tab.SS0[data_1] ^ seed_tab.SS1[data_2] ^ seed_tab.SS2[data_3] ^ seed_tab.SS3[data_4]
 
 def RoundKeyU0(A, B, C, D, KC):
 	T0 = check(A + C - KC)
